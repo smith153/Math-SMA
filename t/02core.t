@@ -1,4 +1,4 @@
-use Test::More tests => 25;
+use Test::More tests => 26;
 
 BEGIN { use_ok('Math::SMA'); }
 
@@ -45,13 +45,15 @@ cmp_ok($e->precision, '==', 3, 'precision is currently 3');
 like($e->sma, qr/\d\.\d{3}/, 'Current average has 3 decimal places');
 
 #test new object can continue from a previous sequence (and one with more values than size)
-my $e2 = Math::SMA->new(size => 3, values => [3,4,5,6,7]);
+my $e2 = Math::SMA->new(size => 3, values => [3,3,4,5,6]);
 cmp_ok(@{$e->values}, '==', 5, 'values has 5 items');
+
+cmp_ok($e2->last_avg(), '==', 5, 'Current average is 5');
 
 $result = $e2->sma(7);
 
-cmp_ok(@{$e->values}, '==', $e->size(), 'values has 3 items');
-cmp_ok(@{$e->values}, '==', 3, 'values has 3 items');
+cmp_ok(@{$e2->values}, '==', $e2->size(), 'values has 3 items');
+cmp_ok(@{$e2->values}, '==', 3, 'values has 3 items');
 
 cmp_ok($result, '==', 6, 'Current average is 6');
 

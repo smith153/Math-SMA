@@ -104,7 +104,7 @@ Math::SMA - SMA in object form
 
 =head1 SYNOPSIS
 
-    use Math::SMA;
+	use Math::SMA;
 	my $sma = Math::SMA->new(size => $n);
 	$sma->sma($value);
 

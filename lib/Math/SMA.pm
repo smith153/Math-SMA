@@ -3,7 +3,7 @@ use Scalar::Util qw(looks_like_number);
 use Moo;
 use namespace::autoclean;
 
-our $VERSION = '0.01';
+our $VERSION = '0.02';
 $VERSION = eval $VERSION;
 
 has size => (
@@ -155,7 +155,7 @@ See L<http://rt.cpan.org> to report and view bugs.
 
 =head1 SOURCE
 
-The source code repository for Math::EWMA can be found at
+The source code repository for Math::SMA can be found at
 L<https://github.com/smith153/Math-SMA>.
 
 =head1 COPYRIGHT
